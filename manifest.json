@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Meet Recorder & Transcriber",
+  "version": "1.0",
+  "description": "Record Google Meet sessions and get real-time transcriptions",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabCapture",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://meet.google.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
